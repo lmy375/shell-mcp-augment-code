@@ -1,0 +1,40 @@
+{
+  "tools": {
+    "add": {
+      "cmd": "echo $(($OPND1 + $OPND2))",
+      "description": "Add two numbers",
+      "args": {
+        "OPND1": {
+          "type": "int",
+          "description": "The first operand to add"
+        },
+        "OPND2": {
+          "type": "int",
+          "description": "The second operand to add"
+        }
+      }
+    },
+    "date": {
+      "cmd": "date",
+      "description": "Get current date and time"
+    },
+    "echo_test": {
+      "cmd": "echo $MESSAGE",
+      "description": "Echo a message",
+      "args": {
+        "MESSAGE": {
+          "type": "string",
+          "description": "Message to echo"
+        }
+      }
+    }
+  },
+  "repls": {
+    "python": {
+      "command": "python3",
+      "description": "Python REPL for executing Python code",
+      "startArgs": ["-i"],
+      "endArgs": ["exit()"]
+    }
+  }
+}
