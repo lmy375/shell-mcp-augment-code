@@ -1,0 +1,155 @@
+{
+  "math_calculator": {
+    "cmd": "echo \"$EXPR\" | bc -l",
+    "args": {
+      "EXPR": {
+        "type": "string",
+        "description": "Mathematical expression to calculate (e.g., '2+2', 'sqrt(16)', 'sin(3.14159/2)')"
+      }
+    },
+    "description": "Advanced mathematical calculator using bc",
+    "timeout": 5000
+  },
+  "file_search": {
+    "cmd": "find $PATH -name \"*$PATTERN*\" -type f | head -n $LIMIT",
+    "args": {
+      "PATH": {
+        "type": "string",
+        "description": "Directory path to search in",
+        "default": "."
+      },
+      "PATTERN": {
+        "type": "string",
+        "description": "File name pattern to search for"
+      },
+      "LIMIT": {
+        "type": "int",
+        "description": "Maximum number of results to return",
+        "default": 20
+      }
+    },
+    "description": "Search for files by name pattern"
+  },
+  "text_processing": {
+    "cmd": "echo \"$TEXT\" | $OPERATION",
+    "args": {
+      "TEXT": {
+        "type": "string",
+        "description": "Text to process"
+      },
+      "OPERATION": {
+        "type": "string",
+        "description": "Text operation (e.g., 'wc -w' for word count, 'tr a-z A-Z' for uppercase)",
+        "default": "cat"
+      }
+    },
+    "description": "Process text using various Unix utilities"
+  },
+  "network_check": {
+    "cmd": "ping -c $COUNT $HOST",
+    "args": {
+      "HOST": {
+        "type": "string",
+        "description": "Hostname or IP address to ping"
+      },
+      "COUNT": {
+        "type": "int",
+        "description": "Number of ping packets to send",
+        "default": 3
+      }
+    },
+    "description": "Check network connectivity to a host"
+  },
+  "json_format": {
+    "cmd": "echo '$JSON' | jq '$FILTER'",
+    "args": {
+      "JSON": {
+        "type": "string",
+        "description": "JSON string to format or query"
+      },
+      "FILTER": {
+        "type": "string",
+        "description": "jq filter expression (use '.' for pretty formatting)",
+        "default": "."
+      }
+    },
+    "description": "Format and query JSON data using jq"
+  },
+  "log_analyzer": {
+    "cmd": "tail -n $LINES $FILE | grep -i \"$PATTERN\" | head -n $LIMIT",
+    "args": {
+      "FILE": {
+        "type": "string",
+        "description": "Log file path to analyze"
+      },
+      "PATTERN": {
+        "type": "string",
+        "description": "Pattern to search for in logs"
+      },
+      "LINES": {
+        "type": "int",
+        "description": "Number of lines to read from end of file",
+        "default": 100
+      },
+      "LIMIT": {
+        "type": "int",
+        "description": "Maximum number of matching lines to return",
+        "default": 10
+      }
+    },
+    "description": "Analyze log files for specific patterns"
+  },
+  "system_monitor": {
+    "cmd": "top -b -n1 | head -n $LINES",
+    "args": {
+      "LINES": {
+        "type": "int",
+        "description": "Number of lines to show from top output",
+        "default": 15
+      }
+    },
+    "description": "Monitor system processes and resource usage"
+  },
+  "encode_decode": {
+    "cmd": "echo -n \"$TEXT\" | $OPERATION",
+    "args": {
+      "TEXT": {
+        "type": "string",
+        "description": "Text to encode or decode"
+      },
+      "OPERATION": {
+        "type": "string",
+        "description": "Encoding operation: 'base64' to encode, 'base64 -d' to decode, 'xxd' for hex",
+        "default": "base64"
+      }
+    },
+    "description": "Encode or decode text in various formats"
+  },
+  "git_status_enhanced": {
+    "cmd": "cd $REPO && git status --porcelain && echo '---' && git log --oneline -n $COMMITS",
+    "args": {
+      "REPO": {
+        "type": "string",
+        "description": "Git repository path",
+        "default": "."
+      },
+      "COMMITS": {
+        "type": "int",
+        "description": "Number of recent commits to show",
+        "default": 5
+      }
+    },
+    "description": "Enhanced git status with recent commits"
+  },
+  "weather_check": {
+    "cmd": "curl -s \"wttr.in/$LOCATION?format=%l:+%C+%t+%h+%w\"",
+    "args": {
+      "LOCATION": {
+        "type": "string",
+        "description": "Location for weather check (city name or coordinates)",
+        "default": "London"
+      }
+    },
+    "description": "Get current weather information for a location"
+  }
+}
