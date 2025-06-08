@@ -1,0 +1,52 @@
+{
+  "git_status": {
+    "cmd": "git status --porcelain",
+    "description": "Get git repository status in porcelain format"
+  },
+  "git_log": {
+    "cmd": "git log --oneline -n $COUNT",
+    "args": {
+      "COUNT": {
+        "type": "int",
+        "description": "Number of commits to show",
+        "default": 10
+      }
+    },
+    "description": "Show recent git commits"
+  },
+  "git_diff": {
+    "cmd": "git diff $FILE",
+    "args": {
+      "FILE": {
+        "type": "string",
+        "description": "File to show diff for",
+        "optional": true
+      }
+    },
+    "description": "Show git diff for a file or all changes"
+  },
+  "git_branch": {
+    "cmd": "git branch -a",
+    "description": "List all git branches"
+  },
+  "git_add": {
+    "cmd": "git add $FILE",
+    "args": {
+      "FILE": {
+        "type": "string",
+        "description": "File or pattern to add to git"
+      }
+    },
+    "description": "Add file to git staging area"
+  },
+  "git_commit": {
+    "cmd": "git commit -m \"$MESSAGE\"",
+    "args": {
+      "MESSAGE": {
+        "type": "string",
+        "description": "Commit message"
+      }
+    },
+    "description": "Create a git commit with message"
+  }
+}

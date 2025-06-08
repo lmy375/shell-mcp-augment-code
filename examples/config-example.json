@@ -1,0 +1,42 @@
+{
+  "calculator": {
+    "cmd": "node -e \"console.log($EXPR)\"",
+    "args": {
+      "EXPR": {
+        "type": "string",
+        "description": "Mathematical expression to evaluate (e.g., '2+2', 'Math.sqrt(16)')"
+      }
+    },
+    "description": "Evaluate mathematical expressions using Node.js"
+  },
+  "current_time": {
+    "cmd": "date '+%Y-%m-%d %H:%M:%S'",
+    "description": "Get current date and time in YYYY-MM-DD HH:MM:SS format"
+  },
+  "system_info": {
+    "cmd": "uname -a",
+    "description": "Get system information"
+  },
+  "disk_usage": {
+    "cmd": "df -h $PATH",
+    "args": {
+      "PATH": {
+        "type": "string",
+        "description": "Path to check disk usage for",
+        "default": "/"
+      }
+    },
+    "description": "Check disk usage for a specific path"
+  },
+  "process_list": {
+    "cmd": "ps aux | head -n $COUNT",
+    "args": {
+      "COUNT": {
+        "type": "int",
+        "description": "Number of processes to show",
+        "default": 10
+      }
+    },
+    "description": "List running processes"
+  }
+}

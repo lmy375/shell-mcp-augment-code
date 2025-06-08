@@ -1,0 +1,50 @@
+{
+  "add": {
+    "cmd": "echo $(($OPND1 + $OPND2))",
+    "args": {
+      "OPND1": {
+        "type": "int",
+        "description": "The first operand to add"
+      },
+      "OPND2": {
+        "type": "int",
+        "description": "The second operand to add"
+      }
+    },
+    "description": "Add two numbers"
+  },
+  "date": {
+    "cmd": "date",
+    "description": "Get current date and time"
+  },
+  "echo": {
+    "cmd": "echo $MESSAGE",
+    "args": {
+      "MESSAGE": {
+        "type": "string",
+        "description": "Message to echo"
+      }
+    },
+    "description": "Echo a message"
+  },
+  "base64_encode": {
+    "cmd": "echo -n $TEXT | base64",
+    "args": {
+      "TEXT": {
+        "type": "string",
+        "description": "Text to encode in base64"
+      }
+    },
+    "description": "Encode text as base64"
+  },
+  "base64_decode": {
+    "cmd": "echo $ENCODED | base64 -d",
+    "args": {
+      "ENCODED": {
+        "type": "string",
+        "description": "Base64 encoded text to decode"
+      }
+    },
+    "description": "Decode base64 text"
+  }
+}
