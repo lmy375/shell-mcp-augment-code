@@ -1,0 +1,24 @@
+{
+  "repls": {
+    "python": {
+      "command": "python3",
+      "description": "Python REPL for executing Python code",
+      "startArgs": ["-i"],
+      "endArgs": ["exit()"],
+      "timeout": 30000
+    },
+    "node": {
+      "command": "node",
+      "description": "Node.js REPL for executing JavaScript code",
+      "endArgs": [".exit"],
+      "timeout": 30000
+    },
+    "bash": {
+      "command": "bash",
+      "description": "Bash shell for executing shell commands",
+      "startArgs": ["--norc"],
+      "endArgs": ["exit"],
+      "timeout": 60000
+    }
+  }
+}
